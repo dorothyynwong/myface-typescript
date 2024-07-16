@@ -1,1 +1,29 @@
 /* Add your styles here. */
+h1 {
+    color: blue;
+}
+
+.parent {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /**align-content: center;**/
+    align-items: center; 
+ /**   flex-wrap: wrap; *//
+  }
+
+.child {
+    /**width: 80%;**/
+    width: 100%;
+    background: rgb(191, 255, 0);
+    margin: 3px;
+    
+  }
+
+.child img {
+    width: 100%;
+    /* display: flex;
+    justify-content: center; */
+   /** align-self: center;*//
+    /**max-width: 1000px;**/
+}

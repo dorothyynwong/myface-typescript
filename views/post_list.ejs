@@ -4,9 +4,10 @@
 <body>
     <main>
     <h1>Posts</h1>
+    <div class="parent">
     <ol>
         <% postList.results.forEach(function(post) {%>
-            <li>
+            <li class="child">
                 <h2>Post ID: <%= post.id %></h2>
                 <p><%= post.message %> - <%= format(post.createdAt, "yyyy-MM-dd HH:mm:ss") %></p>                                
                 <img src="<%= post.imageUrl %>" alt="image in the post <%= post.id %>"/>
@@ -35,6 +36,7 @@
             </li>
         <% }); %>
     </ol>
+    </div>
     </main>
     <%if (postList.next) { %>
         <a href="<%= postList.next %>">Next</a>
