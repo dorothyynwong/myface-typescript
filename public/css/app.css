@@ -10,14 +10,6 @@ h1 {
     align-items: center; 
   }
 
-main {
-    width: 100%;
-}
-
-/* ol {
-    padding: 5px;
-} */
-
 .child {
     background: rgba(177, 202, 200, 0.127);
     margin: 3px;
@@ -52,16 +44,64 @@ main {
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
-  .child {
+  /* .child {
     width: 70%;
+  } */
+
+  .parent {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start; 
+    flex-wrap: wrap;
+  }
+
+  .child {
+    width: 40%;
   }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) { }
+@media only screen and (min-width: 768px) {
+    .parent {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start; 
+        flex-wrap: wrap;
+      }
+
+      .child {
+        width: 30%;
+      }
+ }
 
 /* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) { }
+@media only screen and (min-width: 992px) { 
+    .parent {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start; 
+        flex-wrap: wrap;
+      }
+
+      .child {
+        width: 30%;
+      }
+}
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) { }
+@media only screen and (min-width: 1200px) { 
+    .parent {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start; 
+        flex-wrap: wrap;
+      }
+
+      .child {
+        width: 30%;
+      }
+}
