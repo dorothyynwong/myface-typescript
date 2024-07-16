@@ -6,12 +6,14 @@
 <form method="post" action="/posts/create">
     <label for="message">
         Message:
+    </label>
         <input id="message" type="text" name="message" required/>
-    </label>
-    <label>
+    
+    <label for="imageUrl">
         Image URL:
-        <input type="text" name="imageUrl" required/>
     </label>
+        <input id="imageUrl" type="text" name="imageUrl" required/>
+    
     <button type="submit">Submit</button>
 </form>
 </body>
