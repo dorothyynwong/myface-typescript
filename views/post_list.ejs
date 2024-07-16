@@ -3,43 +3,47 @@
 <%- include('_header') -%>
 <body>
     <div class="parent">
-    <main>
-    <h1>Posts</h1>  
-    <ol>
-        <% postList.results.forEach(function(post) {%>
-            <li class="child">
+        <main>
+            <h1>Posts</h1>  
+            <% postList.results.forEach(function(post) {%>
+            <div class="child">
                 <h2>Post ID: <%= post.id %></h2>
                 <p><%= post.message %> - <%= format(post.createdAt, "yyyy-MM-dd HH:mm:ss") %></p>                                
                 <img src="<%= post.imageUrl %>" alt="image in the post <%= post.id %>"/>
                 <p>Posted By: <%= post.postedBy.name %></p>
-                <p>Liked By: 
-                    <ul><% post.likedBy.forEach(function(likedBy) {%>
-                        <li><%=likedBy.name %></li>
-                        <% }); %> 
-                    </ul>
-                </p>
-                <p>Disliked By: 
-                    <ul><% post.dislikedBy.forEach(function(dislikedBy) {%> 
-                        <li><%=dislikedBy.name %></li>
-                        <% }); %>
-                    </ul>
-                </p>
+                <div class="LikeDislike">
+                    <div>
+                        <p>Liked By: 
+                            <ul><% post.likedBy.forEach(function(likedBy) {%>
+                                <li><%=likedBy.name %></li>
+                                <% }); %> 
+                            </ul>
+                        </p>
+                    </div>
+                    <div>
+                        <p>Disliked By: 
+                            <ul><% post.dislikedBy.forEach(function(dislikedBy) {%> 
+                                <li><%=dislikedBy.name %></li>
+                                <% }); %>
+                            </ul>
+                        </p>
+                    </div>
+                </div>
                 <div class="buttonBox">
-                    <div class="ldButton">
+                    <div>
                         <form method="post" action="/posts/<%= post.id %>/like/">
                             <button type="submit">Like</button>
                         </form>
                     </div>
-                    <div class="ldButton">
+                    <div>
                         <form method="post" action="/posts/<%= post.id %>/dislike/">
                             <button type="submit">Dislike</button>
                         </form>
                     </div>
                 </div>
-            </li>
-        <% }); %>
-    </ol>
-    </main>
+            </div>
+            <% }); %>
+        </main>
     </div>
     <%if (postList.next) { %>
         <a href="<%= postList.next %>">Next</a>
