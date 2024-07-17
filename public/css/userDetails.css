@@ -1,0 +1,31 @@
+body {
+    margin: 0;
+}
+
+
+.imageParent {
+    position: relative;
+    left: 0;
+    top: 0;
+  }
+  
+  .coverImage {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  .profileImage {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    height: 100px;
+    border: 3px solid #ffffff;
+    border-radius: 50%;
+  }
+
+  .profilePad {
+    height: 50px;
+  }
+

@@ -1,6 +1,35 @@
 /* Add your styles here. */
-h1 {
-    color: blue;
+body {
+  background : #252A38;
+  color: #DCDCDC;
+  font-family: Segoe UI;
+  font-weight: 400;
+  font-size:  14px;
+  line-height: 20px;
+
+}
+
+.postedBy {
+  font-weight: 600;
+}
+
+.createdAt {
+  font-weight: 300;
+  font-size:  10px;
+  line-height: 16px;
+}
+
+.buttonBox button {
+  font-size: 20px;
+  line-height: 32px;
+}
+
+/* .message {
+  font-size:  14px;
+} */
+
+a:hover {
+  color: #2985FF;
 }
 
 .parent {
@@ -8,13 +37,20 @@ h1 {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center; 
+    padding : 24px;
   }
 
 .child {
-    background: rgba(177, 202, 200, 0.127);
-    margin: 3px;
+    background: #151820;
+    /* margin: 3px; */
     width: 100%;
+    margin: 12px;
+
   }
+
+.childText{
+  padding : 16px;
+}
 
 .child img {
     width: 100%;

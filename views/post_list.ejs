@@ -4,11 +4,13 @@
 <body>
     <div class="parent">
         <% postList.results.forEach(function(post) {%>
-        <div class="child">
-            <h2>Post ID: <%= post.id %></h2>
-            <p><%= post.message %> - <%= format(post.createdAt, "yyyy-MM-dd HH:mm:ss") %></p>                                
+        <div class="child">                           
             <img src="<%= post.imageUrl %>" alt="image in the post <%= post.id %>"/>
-            <p>Posted By: <%= post.postedBy.name %></p>
+            <div class="childText">
+            <div class="postedBy"><%= post.postedBy.username %></div>
+            <div class="createdAt"><%= format(post.createdAt, "yyyy-MM-dd") %> </div>
+            <p class="message"><%= post.message %></p>   
+            </div>
             <div class="LikeDislike">
                 <div>
                     <p>Liked By: 

@@ -2,7 +2,17 @@
 <%- include('_head') -%>
 <%- include('_header') -%>
 <body>
+<div class="imageParent">
+<img class="coverImage" src="<%= coverImageUrl %>" alt="cover image"/>
+
+    <img class="profileImage" src="<%= profileImageUrl %>" alt="profile image"/>
+    <div class="profilePad"></div>
+
+
+</div>
 <h1><%= name %></h1>
+<div><%= username %></div>
+<div><%= email %></div>
 </body>
 <%- include('_footer') -%>
 </html>
