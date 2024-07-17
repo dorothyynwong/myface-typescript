@@ -2,17 +2,56 @@
 <%- include('_head') -%>
 <%- include('_header') -%>
 <body>
+<section class="profileSession">
 <div class="imageParent">
+    
 <img class="coverImage" src="<%= coverImageUrl %>" alt="cover image"/>
 
-    <img class="profileImage" src="<%= profileImageUrl %>" alt="profile image"/>
     <div class="profilePad"></div>
-
+    <img class="profileImage" src="<%= profileImageUrl %>" alt="profile image"/>
+    <div class="name"><%= name %></div>
+    <div class="username"><%= username %></div>
+    <div class="email"><%= email %></div>
 
 </div>
-<h1><%= name %></h1>
-<div><%= username %></div>
-<div><%= email %></div>
+</section>
+
+<section>
+    <h1><%= name.split(' ')[0] %>'s Posts</h1>
+    <div class="userPosts">
+    <% posts.forEach(function(post) {%>
+        <div class="userSinglePost">                           
+            <img src="<%= post.imageUrl %>" alt="image in the post <%= post.id %>"/>
+            <div class="childText">
+            <div class="postedBy"><%= username %></div>
+            <% let day = post.createdAt.getDate();
+            let month = post.createdAt.getMonth()+1;
+            let year = post.createdAt.getFullYear(); %>
+            <div class="createdAt"><%= day%>/<%=month%>/<%=year%></div>
+            <p class="message"><%= post.message %></p>   
+            </div>
+        </div>
+        <% }); %>
+    </div>
+</section>
+
+<section>
+    <h1><%= name.split(' ')[0] %>'s likes</h1>
+    <div class="parent">
+        <% likes.forEach(function(like) {%>
+        <div class="child">                           
+            <img src="<%= like.imageUrl %>" alt="image in the post <%= like.id %>"/>
+            <div class="childText">
+            <div class="postedBy"><%= like.userId %></div>
+            <p class="message"><%= like.message %></p>  
+            <div class="createdAt"><%= like.createdAt %></div> 
+            </div>
+        </div>      
+        <% }); %>
+    </div>  
+</section>
+
+
 </body>
 <%- include('_footer') -%>
 </html>
