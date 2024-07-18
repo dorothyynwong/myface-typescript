@@ -2,6 +2,15 @@ document.addEventListener("DOMContentLoaded", function () {
   // Add your JavaScript here.
 });
 
+document.addEventListener('click', function(event) {
+  if(event.target.id !== 'menuButton' && event.target.id !== "menuPad")
+  {
+    let menuPad = document.getElementById("menuPad");
+    menuPad.setAttribute("class","menuPadHidden");
+  }
+
+});
+
 function changeBackground() {
   // Add your JavaScript here.
   
