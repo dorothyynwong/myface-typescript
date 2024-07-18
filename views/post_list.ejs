@@ -2,6 +2,7 @@
 <%- include('_head') -%>
 <%- include('_header') -%>
 <body>
+    <button onclick="changeBackground()">Change Color</button>
     <div class="parent">
         <% postList.results.forEach(function(post) {%>
         <div class="child">                           
@@ -53,3 +54,4 @@
 </body>
 <%- include('_footer') -%>
 </html>
+

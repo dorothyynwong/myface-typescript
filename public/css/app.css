@@ -1,4 +1,25 @@
 /* Add your styles here. */
+.menuPad {
+  position: absolute;
+  display : none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background:pink;
+  opacity: 50%;
+  gap: 30px;
+}
+
+.menuLink{
+  font-weight: 400;
+  font-size: 24px;
+}
+
+
 body {
   background : #252A38;
   color: #DCDCDC;
