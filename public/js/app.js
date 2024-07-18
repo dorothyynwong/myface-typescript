@@ -11,6 +11,16 @@ document.addEventListener('click', function(event) {
 
 });
 
+document.addEventListener('keydown', function(event) {
+  if(event.key === "Escape")
+  {
+    let menuPad = document.getElementById("menuPad");
+    menuPad.setAttribute("class","menuPadHidden");
+  }
+
+});
+
+
 function changeBackground() {
   // Add your JavaScript here.
   
