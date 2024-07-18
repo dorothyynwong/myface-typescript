@@ -33,3 +33,18 @@ function displayMenu() {
   if (displayValue === "menuPadHidden")  menuPad.setAttribute("class","menuPadShow");
   else  menuPad.setAttribute("class","menuPadHidden");
 }
+
+function checkAllInput() {
+  // console.log("check all input");
+  const createUserInputs = document.getElementsByClassName("createUserInput");
+  //console.log(createUserInputs[0].value);
+  let showSubmit = true;
+  for(let createUserInput of createUserInputs) {
+    if (createUserInput.value === "") {
+      showSubmit = false;
+      break;
+    }
+  }
+  const submitButton = document.getElementById("createUserSubmitID");
+  if (showSubmit) submitButton.setAttribute("class", "submitButton");
+}

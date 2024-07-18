@@ -1,20 +1,23 @@
 /* Add your styles here. */
+@keyframes MY_ANIMATION 
+{
+ 0% { background: green 
+}
+ 25% { background: red 
+}
+ 75% { background: purple 
+}
+ 100% { background: yellow 
+}
+}
+
+
 .menuPadHidden {
-  position: absolute;
   display : none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  top: 0;
-  right: 0;
-  width: 50%;
-  height: 100%;
-  background:pink;
-  opacity: 50%;
-  gap: 30px;
 }
 
 .menuPadShow {
+  animation: MY_ANIMATION 4s;
   position: absolute;
   display : flex;
   flex-direction: column;
@@ -24,8 +27,8 @@
   right: 0;
   width: 50%;
   height: 100%;
-  background:pink;
-  opacity: 50%;
+  background: #252A38;
+  opacity: 90%;
   gap: 30px;
 }
 
@@ -131,6 +134,10 @@ a:hover {
   .child {
     width: 40%;
   }
+
+  .menuPadShow{
+    width : 40%
+  }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
@@ -145,6 +152,10 @@ a:hover {
 
       .child {
         width: 30%;
+      }
+
+      .menuPadShow{
+        width : 30%
       }
  }
 
@@ -161,6 +172,10 @@ a:hover {
       .child {
         width: 30%;
       }
+
+      .menuPadShow{
+        width : 20%
+      }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
@@ -175,5 +190,9 @@ a:hover {
 
       .child {
         width: 30%;
+      }
+    
+      .menuPadShow{
+        width : 20%
       }
 }

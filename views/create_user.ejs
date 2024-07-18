@@ -6,25 +6,25 @@
 <form method="post" action="/users/create">
     <label>
         Name:
-        <input type="text" name="name" required/>
+        <input class="createUserInput" type="text" name="name" onchange="checkAllInput()" required/>
     </label>
     <label>
         Username:
-        <input type="text" name="username" required/>
+        <input class="createUserInput" type="text" name="username" onchange="checkAllInput()" required/>
     </label>
     <label>
         Email:
-        <input type="email" name="email" required/>
+        <input class="createUserInput" type="email" name="email" onchange="checkAllInput()" required/>
     </label>
     <label>
         ProfileImageUrl:
-        <input type="text" name="profileImageUrl" required/>
+        <input class="createUserInput" type="text" name="profileImageUrl" onchange="checkAllInput()" required/>
     </label>
     <label>
         CoverImageUrl:
-        <input type="text" name="coverImageUrl" required/>
+        <input class="createUserInput" type="text" name="coverImageUrl" onchange="checkAllInput()" required/>
     </label>
-    <button type="submit">Submit</button>
+    <button type="submit" class="createUserSubmit">Submit</button>
 </form>
 </body>
 <%- include('_footer') -%>
