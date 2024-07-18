@@ -1,7 +1,22 @@
 /* Add your styles here. */
-.menuPad {
+.menuPadHidden {
   position: absolute;
   display : none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background:pink;
+  opacity: 50%;
+  gap: 30px;
+}
+
+.menuPadShow {
+  position: absolute;
+  display : flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
