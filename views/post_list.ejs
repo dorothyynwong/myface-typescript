@@ -14,20 +14,22 @@
             </div>
             <div class="LikeDislike">
                 <div>
-                    <p>Liked By: 
+                    <!-- <p>Liked By: 
                         <ul><% post.likedBy.forEach(function(likedBy) {%>
                             <li><%=likedBy.name %></li>
                             <% }); %> 
                         </ul>
-                    </p>
+                    </p> -->
+                    <%=post.likedBy.length %> Likes
                 </div>
                 <div>
-                    <p>Disliked By: 
+                    <!-- <p>Disliked By: 
                         <ul><% post.dislikedBy.forEach(function(dislikedBy) {%> 
                             <li><%=dislikedBy.name %></li>
                             <% }); %>
                         </ul>
-                    </p>
+                    </p> -->
+                    <%=post.dislikedBy.length %> Dislikes
                 </div>
             </div>
             <div class="buttonBox">
