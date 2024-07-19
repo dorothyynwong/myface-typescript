@@ -51,5 +51,5 @@ function checkAllInput() {
   const showSubmit = createUserForm.checkValidity();
 
   const submitButton = document.getElementById("createUserSubmitID");
-  if (showSubmit) submitButton.setAttribute("class", "submitButton");
+  if (showSubmit) submitButton.setAttribute("class", "createUserSubmit");
 }
