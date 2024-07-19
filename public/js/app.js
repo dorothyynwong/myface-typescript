@@ -49,7 +49,8 @@ function checkAllInput() {
 
   const createUserForm = document.getElementById("createUserForm");
   const showSubmit = createUserForm.checkValidity();
-
+  
   const submitButton = document.getElementById("createUserSubmitID");
   if (showSubmit) submitButton.setAttribute("class", "createUserSubmit");
+  else submitButton.setAttribute("class", "createUserSubmitHidden");
 }
