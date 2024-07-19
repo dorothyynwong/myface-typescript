@@ -1,4 +1,5 @@
 import express from "express";
+import parser from 'dom-parser';
 import { CreatePostRequest } from "../models/api/createPostRequest";
 import {
   createPost,
@@ -44,13 +45,19 @@ router.post(
   }
 );
 
+router.get("/:postId/like/", async (request, response) => {
+  const postId = request.params.postId;
+  const doc = await fetchPosts(postId);
+  console.log(doc);
+});
+
 router.post("/:postId/like/", async (request, response) => {
   const userId = 1; // For now, just assume that we are user 1
   const postId = parseInt(request.params.postId);
   const returnUrl = request.params?.returnUrl;
 
   await likePost(userId, postId);
-  response.redirect(returnUrl || "/posts/");
+ // response.redirect(returnUrl || "/posts/");
 });
 
 router.post("/:postId/dislike/", async (request, response) => {
@@ -63,3 +70,14 @@ router.post("/:postId/dislike/", async (request, response) => {
 });
 
 export default router;
+
+async function fetchPosts(postId: string) {
+  try {
+      const response = await fetch("http://localhost:3001/posts/1002/like/");
+      const htmlString = await response.json();
+      console.log(response.status);
+      return htmlString;
+  } catch (error) {
+      console.error('Error fetching or parsing HTML:', error);
+  }
+}
