@@ -36,15 +36,20 @@ function displayMenu() {
 
 function checkAllInput() {
   // console.log("check all input");
-  const createUserInputs = document.getElementsByClassName("createUserInput");
+ // const createUserInputs = document.getElementsByClassName("createUserInput");
   //console.log(createUserInputs[0].value);
-  let showSubmit = true;
-  for(let createUserInput of createUserInputs) {
-    if (createUserInput.value === "") {
-      showSubmit = false;
-      break;
-    }
-  }
+
+  // let showSubmit = true;
+  // for(let createUserInput of createUserInputs) {
+  //   if (createUserInput.value === "") {
+  //     showSubmit = false;
+  //     break;
+  //   }
+  // }
+
+  const createUserForm = document.getElementById("createUserForm");
+  const showSubmit = createUserForm.checkValidity();
+
   const submitButton = document.getElementById("createUserSubmitID");
   if (showSubmit) submitButton.setAttribute("class", "submitButton");
 }

@@ -3,7 +3,7 @@
 <%- include('_header') -%>
 <body>
 <h1>Create User</h1>
-<form method="post" action="/users/create">
+<form id="createUserForm" method="post" action="/users/create">
     <label>
         Name:
         <input class="createUserInput" type="text" name="name" onchange="checkAllInput()" required/>
