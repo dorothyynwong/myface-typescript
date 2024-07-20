@@ -6,6 +6,7 @@ import {
   dislikePost,
   getPageOfPosts,
   likePost,
+  getSinglePost,
 } from "../services/postService";
 import { body, validationResult } from "express-validator";
 import { format } from "date-fns";
@@ -45,39 +46,26 @@ router.post(
   }
 );
 
-router.get("/:postId/like/", async (request, response) => {
-  const postId = request.params.postId;
-  const doc = await fetchPosts(postId);
-  console.log(doc);
-});
-
 router.post("/:postId/like/", async (request, response) => {
   const userId = 1; // For now, just assume that we are user 1
   const postId = parseInt(request.params.postId);
-  const returnUrl = request.params?.returnUrl;
+  //const returnUrl = request.params?.returnUrl;
 
   await likePost(userId, postId);
+  const postModel = await getSinglePost(postId);
  // response.redirect(returnUrl || "/posts/");
+  return response.json({ success: true, newLikeCount: postModel.likedBy.length });
 });
 
 router.post("/:postId/dislike/", async (request, response) => {
   const userId = 1; // For now, just assume that we are user 1
   const postId = parseInt(request.params.postId);
-  const returnUrl = request.params?.returnUrl;
+//const returnUrl = request.params?.returnUrl;
 
   await dislikePost(userId, postId);
-  response.redirect(returnUrl || "/posts/");
+  const postModel = await getSinglePost(postId);
+  //response.redirect(returnUrl || "/posts/");
+  return response.json({ success: true, newDislikeCount: postModel.dislikedBy.length });
 });
 
 export default router;
-
-async function fetchPosts(postId: string) {
-  try {
-      const response = await fetch("http://localhost:3001/posts/1002/like/");
-      const htmlString = await response.json();
-      console.log(response.status);
-      return htmlString;
-  } catch (error) {
-      console.error('Error fetching or parsing HTML:', error);
-  }
-}

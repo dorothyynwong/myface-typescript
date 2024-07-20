@@ -20,7 +20,7 @@
                             <% }); %> 
                         </ul>
                     </p> -->
-                    <div id="noOfLikes"><%=post.likedBy.length %></div> Likes
+                    <div id="like-count-<%= post.id %>"><%=post.likedBy.length %></div> Likes
                 </div>
                 <div>
                     <!-- <p>Disliked By: 
@@ -29,17 +29,19 @@
                             <% }); %>
                         </ul>
                     </p> -->
-                    <div id="noOfDislikes"><%=post.dislikedBy.length %></div> Dislikes
+                    <div id="dislike-count-<%= post.id %>"><%=post.dislikedBy.length %></div> Dislikes
                 </div>
             </div>
             <div class="buttonBox">
                 <div>
-                    <form method="post" action="/posts/<%= post.id %>/like/">
-                        <button type="submit">Like</button>
+                    <!-- <form id="like-form-<%= post.id %>" method="post" action="/posts/<%= post.id %>/like/"> -->
+                    <form id="like-form-<%= post.id %>">
+                        <button type="submit" id="like-button-<%= post.id%>">Like</button>
                     </form>
                 </div>
                 <div>
-                    <form method="post" action="/posts/<%= post.id %>/dislike/">
+                    <!-- <form id="dislike-form-<%= post.id %>" method="post" action="/posts/<%= post.id %>/dislike/"> -->
+                    <form id="dislike-form-<%= post.id %>">
                         <button type="submit">Dislike</button>
                     </form>
                 </div>

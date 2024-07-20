@@ -1,6 +1,3 @@
-document.addEventListener("DOMContentLoaded", function () {
-  // Add your JavaScript here.
-});
 
 document.addEventListener('click', function(event) {
   if(event.target.id !== 'menuButton' && event.target.id !== "menuPad")
@@ -35,25 +32,64 @@ function displayMenu() {
 }
 
 function checkAllInput() {
-  // console.log("check all input");
- // const createUserInputs = document.getElementsByClassName("createUserInput");
-  //console.log(createUserInputs[0].value);
-
-  // let showSubmit = true;
-  // for(let createUserInput of createUserInputs) {
-  //   if (createUserInput.value === "") {
-  //     showSubmit = false;
-  //     break;
-  //   }
-  // }
-
   const createUserForm = document.getElementById("createUserForm");
   const showSubmit = createUserForm.checkValidity();
   
   const submitButton = document.getElementById("createUserSubmitID");
-  // if (showSubmit) submitButton.setAttribute("class", "createUserSubmit");
-  // else submitButton.setAttribute("class", "createUserSubmitHidden");
 
   if(showSubmit) submitButton.disabled = false;
   else submitButton.disabled = true;
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+  document.querySelectorAll('form[id^="like-form-"]').forEach(form => {
+        form.addEventListener('submit', async function(event) {
+            const formId = this.id;
+            const postId = formId.split('-')[2];
+            const actionUrl = `/posts/${postId}/like/`;
+
+            try {
+                const response = await fetch(actionUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    document.getElementById(`like-count-${postId}`).textContent = data.newLikeCount;
+                } else {
+                    console.error('Failed to like the post');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        });
+    });
+
+    document.querySelectorAll('form[id^="dislike-form-"]').forEach(form => {
+      form.addEventListener('submit', async function(event) {
+          const formId = this.id;
+          const postId = formId.split('-')[2];
+          const actionUrl = `/posts/${postId}/dislike/`;
+
+          try {
+              const response = await fetch(actionUrl, {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json'
+                  }
+              });
+              if (response.ok) {
+                  const data = await response.json();
+                  document.getElementById(`dislike-count-${postId}`).textContent = data.newDislikeCount;
+              } else {
+                  console.error('Failed to dislike the post');
+              }
+          } catch (error) {
+              console.error('Error:', error);
+          }
+      });
+  });
+});
